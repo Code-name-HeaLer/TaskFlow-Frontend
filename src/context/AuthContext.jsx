@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const AuthContext = createContext(null);
 
-export const API_BASE_URL = 'http://localhost:5000/api';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 // Axios instance for API calls.
 // The browser will automatically send the HttpOnly cookie with requests to the same domain.
