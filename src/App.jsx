@@ -20,7 +20,7 @@ function App() {
     if (!authLoading && isAuthenticated) {
       fetchTodos();
     } else if (!authLoading && !isAuthenticated) {
-      navigate('/login', { replace: true });
+      navigate('/', { replace: true });
     }
   }, [isAuthenticated, authLoading, navigate]);
 
