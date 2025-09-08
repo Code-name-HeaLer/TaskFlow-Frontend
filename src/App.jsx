@@ -90,7 +90,7 @@ function App() {
 
   const handleLogoutAndRedirect = async () => {
     await logout();
-    navigate('/login', { replace: true });
+    navigate('/', { replace: true });
   };
 
   const completedCount = todos.filter(todo => todo.completed).length;
