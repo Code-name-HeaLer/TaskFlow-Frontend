@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'; // Added useRef
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import LoadingScreen from '../components/LoadingScreen.jsx';
 
 function OAuthSuccessPage() {
     const navigate = useNavigate();
@@ -44,9 +45,7 @@ function OAuthSuccessPage() {
     }, [isAuthenticated, loading, navigate, searchParams]);
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-            <p className="text-xl">Finalizing authentication, please wait...</p>
-        </div>
+        <LoadingScreen message="Finalizing authentication, please wait..." />
     );
 }
 export default OAuthSuccessPage;

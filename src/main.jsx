@@ -7,6 +7,7 @@ import LandingPage from './pages/Landing.jsx';
 import LoginPage from './pages/Login.jsx';
 import OAuthSuccessPage from './pages/OAuthSuccessPage.jsx';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
+import LoadingScreen from './components/LoadingScreen.jsx';
 import './index.css'; // Your global styles
 
 // Component to protect routes that require authentication
@@ -14,7 +15,7 @@ const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>; // Or a spinner component
+    return <LoadingScreen message="Checking authentication..." />;
   }
 
   if (!isAuthenticated) {
@@ -28,7 +29,7 @@ const GuestRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>; // Or a spinner component
+    return <LoadingScreen message="Preparing experience..." />;
   }
 
   if (isAuthenticated) {

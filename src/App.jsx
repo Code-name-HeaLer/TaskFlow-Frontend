@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Pencil, Plus, Check, X, Sparkles, Zap, LogOut, UserCircle } from "lucide-react";
+import LoadingScreen from './components/LoadingScreen.jsx';
 import { useAuth } from "./context/AuthContext.jsx"; // Import useAuth
 import { useNavigate } from "react-router-dom";   // Import useNavigat
 
@@ -99,7 +100,7 @@ function App() {
   // User object from JWT payload (via AuthContext)
   // It should have name, picture from the JWT you created in authRoutes.js
   if (authLoading) { // Use authLoading from context
-    return <div className="min-h-screen flex items-center justify-center">Loading application...</div>;
+    return <LoadingScreen message="Loading your workspace..." />;
   }
 
   return (
